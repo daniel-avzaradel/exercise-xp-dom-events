@@ -28,11 +28,12 @@ const body = document.body;
 const button = document.createElement('button')
 let t = document.createTextNode("Click me")
 button.appendChild(t)
-button.style.marginTop = "20px"
+button.style.marginTop = "20px";
 
 const paragraphs = document.querySelectorAll('article p')
+const form = document.querySelector('form')
 console.log(paragraphs)
-body.appendChild(button)
+form.appendChild(button)
 
 button.addEventListener('click', () => {
     for (let i=0; i < paragraphs.length; i++) {
@@ -74,3 +75,57 @@ paragraphs[1].addEventListener('mouseover', () => {
     paragraphs[1].style.transition = "0.6s";
     paragraphs[1].style.opacity = "0";
 })
+
+
+
+// =============== EXERCISE 2: TRANSFORM A SENTENCE ============= //
+
+// Create a function called getBold_items() that takes no parameter. This function should collect all the bold items inside the paragraph.
+function getBold_items() {
+    return strong = document.getElementsByTagName('strong');
+}
+
+// Create a function called highlight() that changes the color of all the bold text to blue.
+
+function highlight() {
+    let strong = getBold_items();
+    for (let i=0; i < strong.length; i++) {
+        strong[i].style.color = "blue";
+    }
+}
+
+// Create a function called return_normal() that changes the color of all the bold text back to black.
+
+function return_normal() {
+    let black = getBold_items();
+    for (let i=0; i < black.length; i++) {
+        black[i].style.color = "black";
+    }
+}
+
+// Call the function highlight() onmouseover (ie. when the mouse pointer is moved onto the paragraph), and the function return_normal() onmouseout (ie. when the mouse pointer is moved out of the paragraph)
+
+const strongText = document.getElementById('strongText');
+
+strongText.addEventListener('mouseover', (highlight));
+strongText.addEventListener('mouseout', (return_normal));
+
+
+
+// =============== EXERCISE 3: VOLUME OF A SPHERE ============= //
+
+// Write a JavaScript program to calculate the volume of a sphere. Use the code below as a base:
+
+const radius = document.getElementById('radius');
+const calculate = document.getElementById('calculate')
+const volumeInput = document.getElementById('volume');
+
+calculate.addEventListener('click', calculateSphere)
+
+    function calculateSphere(event) {
+        event.preventDefault();
+        let volume = 4 / 3 * Math.PI * (radius.value ** 3);
+        console.log(volume);
+        volumeInput.value = volume;
+        return volume;
+}
